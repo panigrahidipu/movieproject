@@ -1,0 +1,29 @@
+﻿@model List<movieproject.Models.RentalHeader>
+
+<h2>Rental Transactions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Rental Number</th>
+            <th>Customer</th>
+            <th>Rent Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rental in Model)
+        {
+            <tr>
+                <td>@rental.RentalNumber</td>
+                <td>@rental.Customer.Name</td>
+                <td>@rental.RentDate.ToShortDateString()</td>
+                <td>
+                    @Html.ActionLink("Return", "ReturnMovie", new { id = rental.RentalNumber }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Create New Rental", "Create")

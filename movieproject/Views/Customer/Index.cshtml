@@ -1,0 +1,23 @@
+﻿@model List<movieproject.Models.Customer>
+
+<h2>Customers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthdate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.BirthDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Create New", "Create")
